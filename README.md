@@ -23,8 +23,15 @@ Pour la complexité de la méthode "rapide",  elle serait de O(log(hauteur)) (un
 ### 8
 L'ajout de t dans h2i permet d'éviter les cycles de calcul. En effet, si on a un cycle de calcul, alors au bout d'un moment, on va retomber sur un hash déjà calculé et donc on va boucler sur ce cycle. En ajoutant t dans h2i, on évite ce problème car on ne cycle pas.
 
+De plus, si par chance on retombe sur un indice déjà calculé dans une autre colonne, alors le hash suivant sera différent et on augmentera la diversité de la table.
+
 ### 12
-TODO
+Dans une table arc en ciel, la complexité serait de O(log(hauteur) * largeur * largeur)
+log(hauteur) car recherche dichotomique,
+largeur car on va trouver le hash en moyenne à la moitié du tableau, s'il est valide et correspond à un mot de passe trouvable par la table
+largeur(2) car à chaque boucle, on doit recalculer le nouveau candidat à chercher, qui prend (largeur - t) itérations soit en moyenne largeur/2 itérations
+Cette recherche aura une complexité spaciale de O(hauteur) car il faut charger la table en mémoire.
+Les autres calculs sont considérés comme négligeables. (la vérification des candidats est tout le temps constant sauf cas exceptionnel) 
 
 ### 14
 
@@ -48,7 +55,7 @@ il faudrait environ 0.7 * 1000000000/1000 * 80000/1000 = 56000000 secondes, soit
 En bruteforce, il faut 60ms pour trouver le mot de passe.
 - (hash de ZZZZ)
 En bruteforce, il faut 740ms pour trouver le mot de passe.
-
+---
 - dafaa5e15a30ecd52c2d1dc6d1a3d8a0633e67e2 / alphabet = abcdefghijklmnopqrstuvwxyz0123456789,;:$. / size = 5 / N = 115856201
 En bruteforce, il faut 72s pour trouver le mot de passe.
 - (hash de .....)
