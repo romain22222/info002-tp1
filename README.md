@@ -10,7 +10,7 @@ Exemples :
 - `python3 main.py bruteforce 16de25af888480da1af57a71855f3e8c515dcb61 -A26A -s=4`
 - `python3 main.py create 1000 1000 26As4.txt y --size=4 -A26A`
 
-Pour plus d'informations, voir `python3 main.py --help`
+Pour plus d'informations, voir `python3 main.py help`
 
 
 ## Questions
